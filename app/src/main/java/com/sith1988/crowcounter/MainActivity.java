@@ -8,9 +8,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button mButtonCrowCounter;
+    private Button mButtonCatCounter;
+    private Button mButtonCountersToZero;
+    private int mCrowCount = 0;
+    private int mCatCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +34,37 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        mButtonCrowCounter = (Button)findViewById(R.id.buttonCrowCount);
+        mButtonCrowCounter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCrowCount += 1;
+                TextView Textview = (TextView) findViewById(R.id.textView);
+                String mCrowCounterMessage = "Я насчитал " + mCrowCount + " ворон";
+                Textview.setText(mCrowCounterMessage);
+
+            }
+        });
+        mButtonCatCounter = (Button)findViewById(R.id.buttonCatCount);
+        mButtonCatCounter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCatCount += 1;
+                TextView mViewCatCounter = (TextView)findViewById(R.id.textView);
+                mViewCatCounter.setText("Я насчитал " + mCatCount + " котов");
+            }
+        });
+        mButtonCountersToZero = (Button)findViewById(R.id.buttonToZero);
+        mButtonCountersToZero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCrowCount = 0;
+                mCatCount = 0;
+                TextView mSetToZeroSuccess = (TextView)findViewById(R.id.textView);
+                mSetToZeroSuccess.setText("Счетчики успешно обнулены");
+            }
+        });
+
     }
 
     @Override

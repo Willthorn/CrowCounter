@@ -3,4 +3,7 @@
     <string name="action_settings">Settings</string>
     <string name="SayHello">Поздороваться</string>
     <string name="Crows">Вороны</string>
+    <string name="crow_count">Считаем ворон</string>
+    <string name="cat_count">Считаем котов</string>
+    <string name="counters_to_zero">Обнуление счетчиков</string>
 </resources>
